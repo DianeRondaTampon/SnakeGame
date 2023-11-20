@@ -55,10 +55,10 @@ namespace WinFormsSnakeGame
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            //the pictureBox is 1400*700
+            //the pictureBox is 1200*500
             //the sprites are 20*20
-            //the grid will be 70*35
-            gridSize = new Point(70, 35);
+            //the grid will be 60*25
+            gridSize = new Point(60, 25);
 
             int centerX = gridSize.X / 2;
             int centerY = gridSize.Y / 2;

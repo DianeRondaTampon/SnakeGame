@@ -28,74 +28,77 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            btnStart = new Button();
-            pcbGraphics = new PictureBox();
-            lblScore = new Label();
-            label1 = new Label();
-            timer = new System.Windows.Forms.Timer(components);
-            ((System.ComponentModel.ISupportInitialize)pcbGraphics).BeginInit();
-            SuspendLayout();
+            this.components = new System.ComponentModel.Container();
+            this.btnStart = new System.Windows.Forms.Button();
+            this.pcbGraphics = new System.Windows.Forms.PictureBox();
+            this.lblScore = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.pcbGraphics)).BeginInit();
+            this.SuspendLayout();
             // 
             // btnStart
             // 
-            btnStart.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnStart.Location = new Point(1405, 10);
-            btnStart.Name = "btnStart";
-            btnStart.Size = new Size(70, 50);
-            btnStart.TabIndex = 0;
-            btnStart.TabStop = false;
-            btnStart.Text = "Start";
-            btnStart.UseVisualStyleBackColor = true;
-            btnStart.Click += btnStart_Click;
+            this.btnStart.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnStart.Location = new System.Drawing.Point(1205, 8);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(61, 38);
+            this.btnStart.TabIndex = 0;
+            this.btnStart.TabStop = false;
+            this.btnStart.Text = "Start";
+            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // pcbGraphics
             // 
-            pcbGraphics.Location = new Point(0, 0);
-            pcbGraphics.Margin = new Padding(0);
-            pcbGraphics.Name = "pcbGraphics";
-            pcbGraphics.Size = new Size(1400, 700);
-            pcbGraphics.TabIndex = 1;
-            pcbGraphics.TabStop = false;
+            this.pcbGraphics.Location = new System.Drawing.Point(0, 0);
+            this.pcbGraphics.Margin = new System.Windows.Forms.Padding(0);
+            this.pcbGraphics.Name = "pcbGraphics";
+            this.pcbGraphics.Size = new System.Drawing.Size(1200, 500);
+            this.pcbGraphics.TabIndex = 1;
+            this.pcbGraphics.TabStop = false;
             // 
             // lblScore
             // 
-            lblScore.AutoSize = true;
-            lblScore.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            lblScore.Location = new Point(1405, 98);
-            lblScore.Name = "lblScore";
-            lblScore.Size = new Size(28, 35);
-            lblScore.TabIndex = 2;
-            lblScore.Text = "0";
+            this.lblScore.AutoSize = true;
+            this.lblScore.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblScore.Location = new System.Drawing.Point(1205, 74);
+            this.lblScore.Name = "lblScore";
+            this.lblScore.Size = new System.Drawing.Size(23, 28);
+            this.lblScore.TabIndex = 2;
+            this.lblScore.Text = "0";
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(1405, 66);
-            label1.Name = "label1";
-            label1.Size = new Size(61, 28);
-            label1.TabIndex = 3;
-            label1.Text = "Score";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(1205, 50);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 21);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Score";
             // 
             // timer
             // 
-            timer.Tick += timer_Tick;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1482, 703);
-            Controls.Add(label1);
-            Controls.Add(lblScore);
-            Controls.Add(pcbGraphics);
-            Controls.Add(btnStart);
-            Name = "Form1";
-            Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)pcbGraphics).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1284, 561);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblScore);
+            this.Controls.Add(this.pcbGraphics);
+            this.Controls.Add(this.btnStart);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Name = "Form1";
+            this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.pcbGraphics)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
