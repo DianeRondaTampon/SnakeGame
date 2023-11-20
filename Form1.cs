@@ -35,7 +35,7 @@ namespace WinFormsSnakeGame
 
             string snakePath = Path.Combine(imagePath, "snake-point-20.png");
             string fruitPath = Path.Combine(imagePath, "cherry-20.jpg");
-            string wallPath = Path.Combine(imagePath, "wall-20.png");
+            string wallPath = Path.Combine(imagePath, "wall-20.jpg");
 
             // Load image into a variable
             snakeImage = Image.FromFile(snakePath);
