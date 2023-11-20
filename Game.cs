@@ -19,7 +19,7 @@ namespace WinFormsSnakeGame
     {
         //First point is HEAD, last point is TAIL
         public List<Point> points { get; set; }
-        public Direction direction { get; set; }
+        private Direction direction { get; set; }
         public bool bigger { get; set; }
 
         public Snake()
@@ -40,7 +40,34 @@ namespace WinFormsSnakeGame
 
         public void ChangeDirection(Direction direction)
         {
-            this.direction = direction;
+            switch (direction)
+            {
+                case Direction.Up:
+                    if (direction != Direction.Down)
+                    {
+                        direction = Direction.Up;
+                    }
+                    break;
+                case Direction.Down:
+                    if (direction != Direction.Up)
+                    {
+                        direction = Direction.Down;
+                    }
+                    break;
+                case Direction.Left:
+                    if (direction != Direction.Right)
+                    {
+                        direction = Direction.Left;
+                    }
+                    break;
+                case Direction.Right:
+                    if (direction != Direction.Left)
+                    {
+                        direction = Direction.Right;
+                    }
+                    break;
+            }
+
         }
 
         public void Update()

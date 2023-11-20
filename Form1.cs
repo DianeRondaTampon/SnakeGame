@@ -203,33 +203,20 @@ namespace WinFormsSnakeGame
 
         private void Form1_KeyDown(object? sender, KeyEventArgs e)
         {
-            //MessageBox.Show("Form1_KeyDown");
             // Handle arrow key presses
             switch (e.KeyData)
             {
                 case Keys.Up:
-                    if (snake.direction != Direction.Down)
-                    {
-                        snake.direction = Direction.Up;
-                    }
+                    snake.ChangeDirection(Direction.Up);
                     break;
                 case Keys.Down:
-                    if (snake.direction != Direction.Up)
-                    {
-                        snake.direction = Direction.Down;
-                    }
+                    snake.ChangeDirection(Direction.Down);
                     break;
                 case Keys.Left:
-                    if (snake.direction != Direction.Right)
-                    {
-                        snake.direction = Direction.Left;
-                    }
+                    snake.ChangeDirection(Direction.Left);
                     break;
                 case Keys.Right:
-                    if (snake.direction != Direction.Left)
-                    {
-                        snake.direction = Direction.Right;
-                    }
+                    snake.ChangeDirection(Direction.Right);
                     break;
             }
             // Set focus to the form again to ensure continued keyboard input
