@@ -121,6 +121,79 @@ namespace WinFormsSnakeGame
             }
         }
 
+        private void DrawSnake(Graphics g)
+        {
+            int snakeX, snakeY;
+            foreach (Point point in snake.points)
+            {
+                snakeX = point.X * size.X;
+                snakeY = point.Y * size.Y;
+                g.DrawImage(snakeImage, snakeX, snakeY);
+            }
+        } 
+
+        private void DrawFruit(Graphics g) 
+        {
+            int fruitX, fruitY;
+            foreach (Point point in scenary.fruits)
+            {
+                fruitX = point.X * size.X;
+                fruitY = point.Y * size.Y;
+                g.DrawImage(fruitImage, fruitX, fruitY);
+            }
+        }
+
+        private void DrawBoundaries(Graphics g)
+        {
+            int wallX, wallY;
+            //top wall
+            for (int i = 0; i < scenary.boundariesRightDown.X; i++)
+            {
+                wallX = i * size.X;
+                wallY = 0;
+                g.DrawImage(wallImage, wallX, wallY);
+            }
+            //down wall
+            for (int i = 0; i < scenary.boundariesRightDown.X; i++)
+            {
+                wallX = i * size.X;
+                wallY = (scenary.boundariesRightDown.Y - 1) * size.Y;
+                g.DrawImage(wallImage, wallX, wallY);
+            }
+            //left wall
+            for (int i = 0; i < scenary.boundariesRightDown.Y; i++)
+            {
+                wallX = 0;
+                wallY = i * size.Y;
+                g.DrawImage(wallImage, wallX, wallY);
+            }
+            //right wall
+            for (int i = 0; i < scenary.boundariesRightDown.Y; i++)
+            {
+                wallX = (scenary.boundariesRightDown.X - 1) * size.X;
+                wallY = i * size.Y;
+                g.DrawImage(wallImage, wallX, wallY);
+            }
+        }
+
+        private void DrawGameOver(Graphics g) 
+        {
+            if (!scenary.alive)
+            {
+                // Set the font and brush for drawing "Game Over"
+                Font font = new Font("Arial", 40, FontStyle.Bold);
+                Brush brush = new SolidBrush(Color.Red);
+
+                // Measure the size of the text to center it on the screen
+                SizeF textSize = g.MeasureString("Game Over", font);
+                float x = (pcbGraphics.Width - textSize.Width) / 2;
+                float y = (pcbGraphics.Height - textSize.Height) / 2;
+
+                // Draw "Game Over" in big red letters
+                g.DrawString("Game Over", font, brush, x, y);
+            }
+        }
+
         private void DrawGame()
         {
             // Create an off-screen bitmap to draw on
@@ -131,69 +204,16 @@ namespace WinFormsSnakeGame
                 g.Clear(Color.White);
 
                 // Draw the parts of snake image at the specified positions (snake.points)
-                int snakeX, snakeY;
-                foreach (Point point in snake.points)
-                {
-                    snakeX = point.X * size.X;
-                    snakeY = point.Y * size.Y;
-                    g.DrawImage(snakeImage, snakeX, snakeY);
-                }
+                DrawSnake(g);
 
                 // Draw the fruits at the specified positions (scenary.fruits)
-                int fruitX, fruitY;
-                foreach (Point point in scenary.fruits)
-                {
-                    fruitX = point.X * size.X;
-                    fruitY = point.Y * size.Y;
-                    g.DrawImage(fruitImage, fruitX, fruitY);
-                }
+                DrawFruit(g);
 
                 // Draw the walls (boundaries)
-                int wallX, wallY;
-                //top wall
-                for (int i = 0; i < scenary.boundariesRightDown.X; i++)
-                {
-                    wallX = i * size.X;
-                    wallY = 0;
-                    g.DrawImage(wallImage, wallX, wallY);
-                }
-                //down wall
-                for (int i = 0; i < scenary.boundariesRightDown.X; i++)
-                {
-                    wallX = i * size.X;
-                    wallY = (scenary.boundariesRightDown.Y - 1) * size.Y;
-                    g.DrawImage(wallImage, wallX, wallY);
-                }
-                //left wall
-                for (int i = 0; i < scenary.boundariesRightDown.Y; i++)
-                {
-                    wallX = 0;
-                    wallY = i * size.Y;
-                    g.DrawImage(wallImage, wallX, wallY);
-                }
-                //right wall
-                for (int i = 0; i < scenary.boundariesRightDown.Y; i++)
-                {
-                    wallX = (scenary.boundariesRightDown.X - 1) * size.X;
-                    wallY = i * size.Y;
-                    g.DrawImage(wallImage, wallX, wallY);
-                }
+                DrawBoundaries(g);
 
                 // Draw the game over if you not alive
-                if (!scenary.alive)
-                {
-                    // Set the font and brush for drawing "Game Over"
-                    Font font = new Font("Arial", 40, FontStyle.Bold);
-                    Brush brush = new SolidBrush(Color.Red);
-
-                    // Measure the size of the text to center it on the screen
-                    SizeF textSize = g.MeasureString("Game Over", font);
-                    float x = (pcbGraphics.Width - textSize.Width) / 2;
-                    float y = (pcbGraphics.Height - textSize.Height) / 2;
-
-                    // Draw "Game Over" in big red letters
-                    g.DrawString("Game Over", font, brush, x, y);
-                }
+                DrawGameOver(g);
             }
 
             // Draw the off-screen bitmap to the PictureBox
@@ -203,12 +223,13 @@ namespace WinFormsSnakeGame
 
         private void Form1_KeyDown(object? sender, KeyEventArgs e)
         {
+            //MessageBox.Show("Hello");
             // Handle arrow key presses
             switch (e.KeyData)
             {
                 case Keys.Up:
                     snake.ChangeDirection(Direction.Up);
-                    break;
+                    break; 
                 case Keys.Down:
                     snake.ChangeDirection(Direction.Down);
                     break;

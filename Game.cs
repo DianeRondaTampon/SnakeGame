@@ -40,30 +40,32 @@ namespace WinFormsSnakeGame
 
         public void ChangeDirection(Direction direction)
         {
+            //direction is the input parameter that repesent where we want to move the snake
+            //this.direction is the property of class Snake that represent the current direction of the snake
             switch (direction)
             {
                 case Direction.Up:
-                    if (direction != Direction.Down)
+                    if (this.direction != Direction.Down)
                     {
-                        direction = Direction.Up;
+                        this.direction = Direction.Up;
                     }
                     break;
                 case Direction.Down:
-                    if (direction != Direction.Up)
+                    if (this.direction != Direction.Up)
                     {
-                        direction = Direction.Down;
+                        this.direction = Direction.Down;
                     }
                     break;
                 case Direction.Left:
-                    if (direction != Direction.Right)
+                    if (this.direction != Direction.Right)
                     {
-                        direction = Direction.Left;
+                        this.direction = Direction.Left;
                     }
                     break;
                 case Direction.Right:
-                    if (direction != Direction.Left)
+                    if (this.direction != Direction.Left)
                     {
-                        direction = Direction.Right;
+                        this.direction = Direction.Right;
                     }
                     break;
             }
